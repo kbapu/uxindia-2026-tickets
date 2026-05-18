@@ -117,13 +117,12 @@ export const summitTiers: PassTier[] = [
     price: 34999,
     saleStarts: "25 May",
     description:
-      "Full 3-day access with exclusive privileges. Includes CXO Dinner, Speakers Lounge, and front-row reserved seating.",
+      "Full 3-day access with exclusive privileges. Includes Speakers Lounge and front-row reserved seating.",
     note: LIMITED_SEATS_NOTE,
     inclusions: [
       "Day 1 (Sep 23) Workshop Day — all workshops",
       "Day 2 (Sep 24) Grand Ballroom",
       "Day 3 (Sep 25) Two Rooms",
-      "CXO Dinner (Sep 22, by invitation)",
       "Networking Dinner, Sep 24",
       "Reserved front-row seating",
       "VIP Speakers Lounge access",
