@@ -16,9 +16,9 @@ export function SiteNav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-page">
-      <nav className="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href={SITE_LINKS.home} className="relative h-8 w-36 shrink-0">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[#0D0D0D]/95 py-3 backdrop-blur-md">
+      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-6">
+        <Link href={SITE_LINKS.home} className="relative h-9 w-40 shrink-0 md:h-10 md:w-44">
           <Image
             src={LOGO_URL}
             alt="UXINDIA 2026"
@@ -28,89 +28,61 @@ export function SiteNav() {
           />
         </Link>
 
-        <ul className="hidden items-center gap-8 lg:flex">
+        <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="font-sans text-sm text-text-primary/80 transition hover:text-text-primary"
+                className="font-sans text-sm font-medium tracking-wide text-white/80 transition hover:text-white"
               >
                 {link.label}
               </Link>
             </li>
           ))}
-          <li>
-            <Link
-              href="/tickets"
-              className="font-sans text-sm text-brand underline decoration-brand underline-offset-4"
-            >
-              Tickets
-            </Link>
-          </li>
         </ul>
 
         <Link
           href={SITE_LINKS.waitlist}
-          className="hidden items-center rounded-full bg-brand px-5 py-2.5 font-sans text-sm font-medium text-white transition hover:bg-brand/90 lg:inline-flex"
+          className="hidden items-center gap-2 rounded-full bg-brand px-5 py-2.5 font-sans text-sm font-semibold text-white transition hover:scale-105 hover:shadow-lg hover:shadow-brand/30 md:inline-flex"
         >
-          Join Waitlist →
+          Join Waitlist
+          <span aria-hidden>→</span>
         </Link>
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-text-primary lg:hidden"
+          className="inline-flex flex-col gap-1.5 p-2 text-white md:hidden"
           aria-expanded={menuOpen}
           aria-label="Toggle menu"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <span className="sr-only">Menu</span>
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            {menuOpen ? (
-              <path d="M6 6l12 12M18 6L6 18" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            )}
-          </svg>
+          <span className={`block h-0.5 w-6 bg-current transition ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`block h-0.5 w-6 bg-current transition ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block h-0.5 w-6 bg-current transition ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
         </button>
       </nav>
 
       {menuOpen && (
-        <div className="border-t border-white/[0.06] bg-page px-4 py-4 lg:hidden">
-          <ul className="flex flex-col gap-3">
+        <div className="border-t border-white/[0.06] bg-[#0D0D0D] px-6 py-8 md:hidden">
+          <ul className="flex flex-col items-center gap-6 text-center">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="block font-sans text-sm text-text-primary/80"
+                  className="font-reckless text-3xl text-white transition hover:text-brand"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/tickets"
-                className="block font-sans text-sm text-brand"
-                onClick={() => setMenuOpen(false)}
-              >
-                Tickets
-              </Link>
-            </li>
             <li className="pt-2">
               <Link
                 href={SITE_LINKS.waitlist}
-                className="inline-flex w-full items-center justify-center rounded-full bg-brand px-5 py-2.5 font-sans text-sm font-medium text-white"
+                className="inline-flex rounded-full bg-brand px-8 py-3 font-sans text-base font-semibold text-white"
                 onClick={() => setMenuOpen(false)}
               >
-                Join Waitlist →
+                Join Waitlist
               </Link>
             </li>
           </ul>

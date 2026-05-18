@@ -1,34 +1,34 @@
-"use client";
-
-import { useState } from "react";
-import { policyItems } from "@/data/ticketsFaq";
+import { policySections } from "@/data/ticketsFaq";
 
 export function PoliciesSection() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <section className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
-      <button
-        type="button"
-        className="flex w-full items-center justify-between gap-4 text-left"
-        onClick={() => setIsOpen((open) => !open)}
-        aria-expanded={isOpen}
-      >
-        <span className="font-sans text-[13px] font-medium uppercase tracking-[0.12em] text-text-primary/50">
-          Registration Policies
-        </span>
-        <span className="font-sans text-lg text-brand" aria-hidden>
-          {isOpen ? "−" : "+"}
-        </span>
-      </button>
+    <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-24">
+      <div className="mx-auto max-w-5xl">
+        <div className="text-center">
+          <h2 className="font-reckless text-4xl font-medium text-text-primary md:text-5xl lg:text-6xl">
+            Policies &amp; Terms
+          </h2>
+          <p className="mx-auto mt-4 max-w-md font-sans text-sm text-text-primary/40">
+            Important information about registrations, cancellations, and event policies.
+          </p>
+        </div>
 
-      {isOpen && (
-        <ul className="mt-4 space-y-2 font-sans text-sm leading-relaxed text-text-primary/60">
-          {policyItems.map((item) => (
-            <li key={item}>• {item}</li>
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {policySections.map((section) => (
+            <article
+              key={section.title}
+              className="rounded-xl border border-white/10 bg-[#0F0F0F] p-6 transition hover:border-white/20"
+            >
+              <h3 className="font-sans text-lg font-semibold text-text-primary">
+                {section.title}
+              </h3>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-text-primary/60">
+                {section.body}
+              </p>
+            </article>
           ))}
-        </ul>
-      )}
+        </div>
+      </div>
     </section>
   );
 }

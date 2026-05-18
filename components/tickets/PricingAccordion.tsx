@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { PassTier, TrackVariant } from "@/types/pricing";
+import type { AddOnItem, PassTier, TrackVariant } from "@/types/pricing";
 import { PricingTierRow } from "./PricingTierRow";
 
 type PricingAccordionProps = {
@@ -10,6 +10,7 @@ type PricingAccordionProps = {
   defaultOpenId: string;
   sectionLabel?: string;
   isStudent?: boolean;
+  addOns?: AddOnItem[];
 };
 
 export function PricingAccordion({
@@ -18,6 +19,7 @@ export function PricingAccordion({
   defaultOpenId,
   sectionLabel,
   isStudent = false,
+  addOns = [],
 }: PricingAccordionProps) {
   const [openId, setOpenId] = useState(defaultOpenId);
 
@@ -26,9 +28,9 @@ export function PricingAccordion({
   };
 
   return (
-    <div>
+    <div className="space-y-4">
       {sectionLabel && (
-        <p className="px-6 py-4 font-sans text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--text-muted-yellow)] sm:px-9">
+        <p className="px-1 font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-white/40">
           {sectionLabel}
         </p>
       )}
@@ -40,6 +42,7 @@ export function PricingAccordion({
           isOpen={openId === tier.id}
           onToggle={() => toggle(tier.id)}
           isStudent={isStudent}
+          addOns={addOns}
         />
       ))}
     </div>

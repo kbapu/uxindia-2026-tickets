@@ -19,7 +19,7 @@
 }
 
 :root {
-  --bg-page: #0a0a0a;
+  --bg-page: #0d0d0d;
   --bg-card-summit: #1a4d40;
   --bg-card-forum: #c9a227;
   --bg-addon-summit: #132e28;
@@ -75,4 +75,16 @@ body {
 .vip-card-bg {
   background: radial-gradient(ellipse at top, #1c1400 0%, #0d0d00 100%);
   border: 1px solid #8b6914;
+}
+
+.tickets-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
 }

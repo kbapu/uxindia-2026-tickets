@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import type { PassTier, TrackVariant } from "@/types/pricing";
+import { useState } from "react";
+import type { AddOnItem, PassTier, TrackVariant } from "@/types/pricing";
 import { formatPrice } from "@/lib/format";
+import { TicketStackCard } from "./TicketStackCard";
+import { TierAddOnPanel } from "./TierAddOnPanel";
 
 type PricingTierRowProps = {
   tier: PassTier;
@@ -10,6 +13,7 @@ type PricingTierRowProps = {
   isOpen: boolean;
   onToggle: () => void;
   isStudent?: boolean;
+  addOns?: AddOnItem[];
 };
 
 export function PricingTierRow({
@@ -18,7 +22,10 @@ export function PricingTierRow({
   isOpen,
   onToggle,
   isStudent = false,
+  addOns = [],
 }: PricingTierRowProps) {
+  const [addOnsOpen, setAddOnsOpen] = useState(false);
+
   const isSummit = variant === "summit";
   const isVip = tier.cardStyle === "vip";
 
@@ -35,23 +42,11 @@ export function PricingTierRow({
         ? "bg-addon-forum"
         : "bg-card-forum";
 
-  const borderClass = isSummit
-    ? "border-summit-border"
-    : "border-forum-border/40";
+  const stackBg = isSummit ? "bg-[#0f2e26]" : "bg-[#8a6d14]";
 
-  const badgeStyles = {
-    default: isSummit
-      ? "bg-black/25 text-summit-badge-text"
-      : "bg-black/[0.18] text-forum-badge-text",
-    popular: isSummit
-      ? "bg-black/25 text-summit-badge-text"
-      : "bg-black/[0.18] text-forum-badge-text",
-    vip: "bg-vip-gold text-vip-gold-light",
-    addon: "",
-    disabled: isSummit
-      ? "bg-black/25 text-summit-badge-text"
-      : "bg-black/[0.18] text-forum-badge-text",
-  };
+  const outlineBadge = isSummit
+    ? "border border-white/35 text-summit-badge-text"
+    : "border border-black/25 text-forum-badge-text";
 
   const ctaClass = (() => {
     if (tier.ctaDisabled) {
@@ -72,96 +67,113 @@ export function PricingTierRow({
   })();
 
   return (
-    <article
-      className={`border-b ${borderClass} ${cardBg} ${textMain}`}
-    >
-      <button
-        type="button"
-        className="w-full px-6 py-5 text-left sm:px-9"
-        onClick={onToggle}
-        aria-expanded={isOpen}
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex flex-wrap items-center gap-2">
-            <span
-              className={`rounded-full px-3 py-1 font-sans text-xs font-medium ${badgeStyles[tier.badgeVariant]}`}
-            >
-              {tier.badge}
-            </span>
-            {tier.highlight && (
-              <span className="rounded-full bg-brand px-3 py-1 font-sans text-xs font-medium text-white">
-                ★ Most Popular
-              </span>
-            )}
-          </div>
-          <div className="flex shrink-0 items-center gap-3">
-            <div className="text-right">
-              <p className="font-sans text-2xl font-semibold">{formatPrice(tier.price)}</p>
-              <p className={`font-sans text-xs ${textMuted}`}>+ 18% GST</p>
-            </div>
-            <svg
-              className="chevron-icon mt-1 shrink-0"
-              data-open={isOpen}
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              aria-hidden
-            >
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </div>
-        </div>
-
-        <h3 className="font-reckless mt-4 text-[1.75rem] leading-tight">{tier.name}</h3>
-        <p className={`mt-2 font-sans text-sm font-medium ${textMuted}`}>
-          Starts {tier.saleStarts}
-        </p>
-        <p className={`mt-2 font-sans text-[15px] leading-relaxed ${textMuted}`}>
-          {tier.description}
-        </p>
-        {tier.note && (
-          <p className={`mt-2 font-sans text-sm italic ${textMuted}`}>{tier.note}</p>
-        )}
-      </button>
-
-      <div className="accordion-panel px-6 sm:px-9" data-open={isOpen}>
-        <div className="accordion-panel-inner">
-          <div className="pb-6 pt-1">
-            <ul className={`space-y-2 font-sans text-sm ${textMuted}`}>
-              {tier.inclusions.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <span className="shrink-0" aria-hidden>
-                    ✓
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            {tier.savingsNote && (
-              <p className={`mt-4 font-sans text-sm ${textMuted}`}>{tier.savingsNote}</p>
-            )}
-
-            {tier.ctaDisabled ? (
+    <TicketStackCard stackClassName={stackBg}>
+      <article className={`p-6 sm:p-8 ${cardBg} ${textMain}`}>
+        <button
+          type="button"
+          className="w-full text-left"
+          onClick={onToggle}
+          aria-expanded={isOpen}
+        >
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-2">
               <span
-                className={`mt-5 flex w-full items-center justify-center rounded-full px-5 py-3 font-sans text-sm font-medium ${ctaClass}`}
+                className={`rounded-full px-3 py-1 font-sans text-xs font-medium ${outlineBadge}`}
               >
-                {tier.ctaLabel}
+                {tier.badge}
               </span>
-            ) : (
-              <Link
-                href={tier.ctaHref}
-                className={`mt-5 flex w-full items-center justify-center rounded-full px-5 py-3 font-sans text-sm font-medium transition ${ctaClass}`}
+              {tier.highlight && (
+                <span className="rounded-full bg-brand px-3 py-1 font-sans text-xs font-medium text-white">
+                  ★ Most Popular
+                </span>
+              )}
+            </div>
+            <div className="flex shrink-0 items-center gap-2">
+              <p className="font-reckless text-3xl font-medium leading-none sm:text-4xl">
+                {formatPrice(tier.price)}
+              </p>
+              <svg
+                className="chevron-icon mt-1 shrink-0 opacity-70"
+                data-open={isOpen}
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden
               >
-                {tier.ctaLabel}
-              </Link>
-            )}
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </div>
+          </div>
+
+          <h3 className="font-reckless mt-5 text-[1.75rem] leading-tight sm:text-[2rem]">
+            {tier.name}
+          </h3>
+          <p className={`mt-2 font-sans text-sm font-medium ${textMuted}`}>
+            Starts {tier.saleStarts} · + 18% GST
+          </p>
+          <p className={`mt-3 font-sans text-[15px] leading-relaxed ${textMuted}`}>
+            {tier.description}
+          </p>
+          {tier.note && (
+            <p className={`mt-2 font-sans text-sm italic ${textMuted}`}>{tier.note}</p>
+          )}
+        </button>
+
+        <div className="accordion-panel" data-open={isOpen}>
+          <div className="accordion-panel-inner">
+            <div className="pt-4">
+              <ul className={`space-y-2 font-sans text-sm ${textMuted}`}>
+                {tier.inclusions.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="shrink-0" aria-hidden>
+                      ✓
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {tier.savingsNote && (
+                <p className={`mt-4 font-sans text-sm ${textMuted}`}>{tier.savingsNote}</p>
+              )}
+
+              {tier.ctaDisabled ? (
+                <span
+                  className={`mt-5 flex w-full items-center justify-center rounded-full px-5 py-3 font-sans text-sm font-medium ${ctaClass}`}
+                >
+                  {tier.ctaLabel}
+                </span>
+              ) : (
+                <Link
+                  href={tier.ctaHref}
+                  className={`mt-5 flex w-full items-center justify-center rounded-full px-5 py-3 font-sans text-sm font-medium transition ${ctaClass}`}
+                >
+                  {tier.ctaLabel}
+                </Link>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </article>
+
+        {addOns.length > 0 && (
+          <>
+            <button
+              type="button"
+              className={`mt-5 font-sans text-sm font-medium underline-offset-2 hover:underline ${
+                isSummit ? "text-summit-badge-text" : "text-forum-badge-text"
+              }`}
+              onClick={() => setAddOnsOpen((open) => !open)}
+              aria-expanded={addOnsOpen}
+            >
+              {addOnsOpen ? "Hide add-ons" : "Show add-ons"}
+            </button>
+            {addOnsOpen && <TierAddOnPanel addOns={addOns} variant={variant} />}
+          </>
+        )}
+      </article>
+    </TicketStackCard>
   );
 }

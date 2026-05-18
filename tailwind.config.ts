@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        page: "#0A0A0A",
+        page: "#0D0D0D",
         "card-summit": "#1A4D40",
         "card-forum": "#C9A227",
         "addon-summit": "#132E28",
