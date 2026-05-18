@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Reckless Condensed";
+  src: url("/fonts/RecklessCondensed-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Reckless Condensed";
+  src: url("/fonts/RecklessCondensed-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg-page: #0a0a0a;
+  --bg-card-summit: #1a4d40;
+  --bg-card-forum: #c9a227;
+  --bg-addon-summit: #132e28;
+  --bg-addon-forum: #a07e18;
+  --text-primary: #f5f4f0;
+  --text-on-yellow: #1a1200;
+  --text-muted-teal: rgba(245, 244, 240, 0.65);
+  --text-muted-yellow: rgba(26, 18, 0, 0.6);
+  --brand-orange: #e85520;
+  --summit-primary: #1a4d40;
+  --summit-border: #2a6b58;
+  --forum-primary: #c9a227;
+  --forum-border: #e2b82a;
+  --radius-card: 16px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+}
+
+.font-reckless {
+  font-family: "Reckless Condensed", Georgia, serif;
+}
+
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 200ms ease-out;
+}
+
+.accordion-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.accordion-panel-inner {
+  overflow: hidden;
+}
+
+.chevron-icon {
+  transition: transform 200ms ease-out;
+}
+
+.chevron-icon[data-open="true"] {
+  transform: rotate(180deg);
+}
+
+.vip-card-bg {
+  background: radial-gradient(ellipse at top, #1c1400 0%, #0d0d00 100%);
+  border: 1px solid #8b6914;
+}

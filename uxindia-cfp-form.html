@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call for Speakers - UXINDIA 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --accent-light: #ff6b81;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --bg: #fefefe;
+            --bg-secondary: #f8f9fa;
+            --border: #e0e0e0;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, system-ui, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 4rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            color: var(--accent-light);
+        }
+
+        .intro-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            max-width: 800px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+            margin-bottom: 2rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1rem;
+        }
+
+        .intro-highlight {
+            background: rgba(233, 69, 96, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: var(--radius-sm);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.8s forwards;
+        }
+
+        .intro-highlight strong {
+            color: var(--accent);
+        }
+
+        /* Key Info Grid */
+        .key-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 1s forwards;
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        .info-card-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-card-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: -3rem auto 4rem;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            padding: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 1.2s forwards;
+        }
+
+        @media (max-width: 768px) {
+            .form-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            height: 4px;
+            background: var(--bg-secondary);
+            border-radius: 2px;
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transition: width 0.5s ease;
+            border-radius: 2px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .section-description {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: var(--accent);
+            margin-left: 2px;
+        }
+
+        .form-hint {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Input Styles */
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: white;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.6;
+        }
+
+        /* Character Counter */
+        .char-counter {
+            text-align: right;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .char-counter.warning {
+            color: var(--warning);
+        }
+
+        .char-counter.error {
+            color: var(--accent);
+        }
+
+        /* Radio/Checkbox Cards */
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .option-card {
+            position: relative;
+        }
+
+        .option-card input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .option-card label {
+            display: block;
+            padding: 1.25rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            background: white;
+        }
+
+        .option-card:hover label {
+            border-color: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .option-card input:checked + label {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.05), rgba(255, 107, 129, 0.05));
+            box-shadow: var(--shadow-md);
+        }
+
+        .option-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-duration {
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .option-description {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Checkbox Group */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .checkbox-item:hover {
+            border-color: var(--accent-light);
+            background: var(--bg-secondary);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.25rem;
+        }
+
+        .checkbox-content {
+            flex: 1;
+        }
+
+        .checkbox-label {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .checkbox-description {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .checkbox-content a {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .checkbox-content a:hover {
+            color: var(--accent-light);
+        }
+
+        /* File Upload */
+        .file-upload {
+            position: relative;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 2rem;
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--bg-secondary);
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--accent);
+            background: white;
+        }
+
+        .file-name {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        /* Tags Input */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            min-height: 50px;
+            cursor: text;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 0.75rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 100px;
+            font-size: 0.875rem;
+        }
+
+        .tag-remove {
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .tag-remove:hover {
+            opacity: 1;
+        }
+
+        .tag-input {
+            border: none;
+            outline: none;
+            padding: 0.375rem;
+            flex: 1;
+            min-width: 120px;
+            font-family: inherit;
+        }
+
+        /* Alert Boxes */
+        .alert {
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .alert-info {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid #3498db;
+            color: #2c3e50;
+        }
+
+        .alert-warning {
+            background: rgba(253, 203, 110, 0.1);
+            border-left: 4px solid var(--warning);
+            color: #2c3e50;
+        }
+
+        .submission-details-callout {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.35rem 0.75rem;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            font-size: 0.9375rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .submission-details-callout--bottom {
+            margin-top: 2rem;
+            margin-bottom: 0;
+        }
+
+        .submission-details-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .submission-details-link:hover {
+            color: var(--accent-light);
+            text-decoration: underline;
+        }
+
+        .submission-details-link:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        .submission-details-icon {
+            flex-shrink: 0;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* Hidden */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            padding: 3rem 2rem 3.5rem;
+        }
+
+        .success-message-inner {
+            max-width: 520px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 1.75rem;
+            background: linear-gradient(135deg, var(--success), #55efc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 184, 148, 0.25);
+            animation: successPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes successPop {
+            from {
+                opacity: 0;
+                transform: scale(0.85);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .success-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+            line-height: 1.25;
+        }
+
+        .success-lead {
+            font-size: 1.0625rem;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .success-meta-card {
+            text-align: left;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-meta-card p {
+            margin-bottom: 0.35rem;
+            font-size: 0.9375rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .success-meta-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .success-email {
+            font-size: 1rem !important;
+            font-weight: 600;
+            color: var(--primary) !important;
+            word-break: break-word;
+            margin-bottom: 0.75rem !important;
+        }
+
+        .success-support {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        .success-support a {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .success-support a:hover {
+            text-decoration: underline;
+        }
+
+        .success-actions {
+            margin-top: 2.25rem;
+            justify-content: center;
+        }
+
+        .success-actions .btn-secondary {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .success-actions .btn-secondary:hover {
+            background: var(--bg-secondary);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Co-speaker Section */
+        .co-speaker-item {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+            border: 2px solid var(--border);
+        }
+
+        .co-speaker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .remove-co-speaker {
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .add-co-speaker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .add-co-speaker:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 3rem 1.5rem 4rem;
+            }
+
+            .option-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">UXINDIA 2026</div>
+            <h1>Call for Speakers</h1>
+            <p class="subtitle">Designing What Could Possibly Go Right</p>
+            
+            <div class="intro-text">
+                <p><strong>Leadership in the Age of AI.</strong></p>
+                <p>UXINDIA Design Leadership Week 2026 invites bold, generous leaders to share the real stories behind how you are shaping design in the age of AI.</p>
+                <p>Across the <strong>Leadership Summit</strong> and <strong>Rising Leaders Forum</strong>, we are curating talks that go beyond inspiration and reveal the actual work: the decisions, trade-offs, experiments, failures, and outcomes that show what could possibly go right when design leads.</p>
+            </div>
+
+            <div class="intro-highlight">
+                <strong>Who should apply:</strong> Design leaders, product/tech leaders championing UX, entrepreneurs building design-led ventures, and social innovators using design for meaningful change. <strong>You do not need a formal leadership title</strong> — we seek people who step up, align others, and lead change through concrete work.
+            </div>
+
+            <div class="key-info">
+                <div class="info-card">
+                    <div class="info-card-label">Submissions Open</div>
+                    <div class="info-card-value">24 April 2026</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">Submission Deadline</div>
+                    <div class="info-card-value">24 May 2026</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">Event Dates</div>
+                    <div class="info-card-value">23, 24, 25, 26 & 27 Sept 2026</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="form-card">
+            <!-- Progress Bar -->
+            <div class="progress-bar" id="formProgressWrap">
+                <div class="progress-fill" id="progressFill" style="width: 10%"></div>
+            </div>
+
+            <form id="cfpForm">
+                <div class="submission-details-callout" role="note">
+                    <span>For official guidelines, themes, and submission policies, see</span>
+                    <a href="https://2026.ux-india.org/call-for-speakers/" target="_blank" rel="noopener noreferrer" class="submission-details-link">
+                        Submission Details
+                        <svg class="submission-details-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Section 1: Conference Selection -->
+                <section class="section">
+                    <h2 class="section-title">1. Choose Your Track</h2>
+                    <p class="section-description">Select which conference track best fits your experience level and target audience.</p>
+
+                    <div class="alert alert-info">
+                        <strong>Note:</strong> Our curation committee may place your talk where it will create the most value, which may be different from the track you select initially.
+                    </div>
+
+                    <div class="form-group">
+                        <div class="option-grid">
+                            <div class="option-card">
+                                <input type="radio" name="track" id="track-leadership" value="leadership" required>
+                                <label for="track-leadership">
+                                    <div class="option-title">
+                                        <span>Leadership Summit</span>
+                                        <span class="option-duration">23, 24 & 25 Sept</span>
+                                    </div>
+                                    <div class="option-description">
+                                        For practicing and senior leaders (7+ years to C-level). Strategy, business impact, organizational change, scaling design, AI-driven practice transformation.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="option-card">
+                                <input type="radio" name="track" id="track-rising" value="rising" required>
+                                <label for="track-rising">
+                                    <div class="option-title">
+                                        <span>Rising Leaders Forum</span>
+                                        <span class="option-duration">26 & 27 Sept</span>
+                                    </div>
+                                    <div class="option-description">
+                                        For students and emerging leaders (0-7 years experience). Accessible, de-jargonized real stories made actionable for rising talent. Mentorship and skill development.
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Session Format -->
+                <section class="section">
+                    <h2 class="section-title">2. Session Format</h2>
+                    <p class="section-description">Select the format that best suits your content and presentation style.</p>
+
+                    <div class="form-group">
+                        <div class="option-grid">
+                            <div class="option-card">
+                                <input type="radio" name="format" id="format-grand-keynote" value="grand-keynote" required>
+                                <label for="format-grand-keynote">
+                                    <div class="option-title">
+                                        <span>Grand Keynote</span>
+                                        <span class="option-duration">40 min</span>
+                                    </div>
+                                    <div class="option-description">
+                                        Major ballroom keynotes for Day 1 of Leadership Summit. High-level strategic vision framing the theme.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="option-card">
+                                <input type="radio" name="format" id="format-plenary" value="plenary" required>
+                                <label for="format-plenary">
+                                    <div class="option-title">
+                                        <span>Plenary Session</span>
+                                        <span class="option-duration">30 min</span>
+                                    </div>
+                                    <div class="option-description">
+                                        Full-audience sessions for Leadership Summit Day 1. Strategic frameworks and organizational insights.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="option-card">
+                                <input type="radio" name="format" id="format-deep-dive" value="deep-dive" required>
+                                <label for="format-deep-dive">
+                                    <div class="option-title">
+                                        <span>Deep Dive Talk</span>
+                                        <span class="option-duration">30 min</span>
+                                    </div>
+                                    <div class="option-description">
+                                        In-depth explorations with substantial, accessible content for mixed professional and student audiences.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="option-card">
+                                <input type="radio" name="format" id="format-spark" value="spark" required>
+                                <label for="format-spark">
+                                    <div class="option-title">
+                                        <span>Spark Session</span>
+                                        <span class="option-duration">18 min</span>
+                                    </div>
+                                    <div class="option-description">
+                                        High-energy, focused talks with strong teaching value. Quick insights with audience interaction.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="option-card">
+                                <input type="radio" name="format" id="format-panel" value="panel" required>
+                                <label for="format-panel">
+                                    <div class="option-title">
+                                        <span>Panel Discussion</span>
+                                        <span class="option-duration">40 min to 60 min</span>
+                                    </div>
+                                    <div class="option-description">
+                                        Moderated dialogue with multiple perspectives on a focused topic. Requires coordination with other panelists.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="option-card">
+                                <input type="radio" name="format" id="format-workshop" value="workshop" required>
+                                <label for="format-workshop">
+                                    <div class="option-title">
+                                        <span>Workshop / Masterclass</span>
+                                        <span class="option-duration">2.5-3 hours</span>
+                                    </div>
+                                    <div class="option-description">
+                                        Hands-on sessions with advanced skills, strategic tools, frameworks. Day 3 Leadership Summit or Day 2 Rising Leaders.
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Category -->
+                <section class="section">
+                    <h2 class="section-title">3. Submission Category</h2>
+                    <p class="section-description">Choose the primary category that best fits your story. Leadership is the common thread in all categories.</p>
+
+                    <div class="form-group">
+                        <div class="option-grid">
+                            <div class="option-card">
+                                <input type="radio" name="category" id="cat-practice" value="design-practice" required>
+                                <label for="cat-practice">
+                                    <div class="option-title">
+                                        <span>Design Practice</span>
+                                    </div>
+                                    <div class="option-description">
+                                        Reimagining, accelerating, or disrupting design practice. Design ops, collaboration models, AI response, upskilling.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="option-card">
+                                <input type="radio" name="category" id="cat-entrepreneurship" value="entrepreneurship" required>
+                                <label for="cat-entrepreneurship">
+                                    <div class="option-title">
+                                        <span>Entrepreneurship</span>
+                                    </div>
+                                    <div class="option-description">
+                                        Design-first approach to building ventures. Product-market fit, pivots, culture, funding journeys.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="option-card">
+                                <input type="radio" name="category" id="cat-ai" value="emerging-tech" required>
+                                <label for="cat-ai">
+                                    <div class="option-title">
+                                        <span>Emerging Tech – AI & Future-Forward</span>
+                                    </div>
+                                    <div class="option-description">
+                                        Real work with AI and future-forward tech. AI-upskilled teams, collaboration shifts, governance, lived experience.
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="option-card">
+                                <input type="radio" name="category" id="cat-social" value="social-impact" required>
+                                <label for="cat-social">
+                                    <div class="option-title">
+                                        <span>Social Impact</span>
+                                    </div>
+                                    <div class="option-description">
+                                        Design for social good. Public services, health, education, climate, participatory approaches, sustainable models.
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4: Talk Details -->
+                <section class="section">
+                    <h2 class="section-title">4. Talk Details</h2>
+                    <p class="section-description">Tell us about your session. Be specific, honest, and aligned with our theme.</p>
+
+                    <div class="form-group">
+                        <label for="talk-title" class="form-label">
+                            Talk Title <span class="required">*</span>
+                        </label>
+                        <span class="form-hint">Keep it concise, compelling, and clear. Maximum 100 characters.</span>
+                        <input type="text" id="talk-title" name="talk-title" maxlength="100" required>
+                        <div class="char-counter" id="title-counter">0 / 100</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="talk-abstract" class="form-label">
+                            Abstract <span class="required">*</span>
+                        </label>
+                        <span class="form-hint">This will appear in the conference program. Write 350-500 characters that capture your key insight and what attendees will take away. Focus on outcomes, not just topics.</span>
+                        <textarea id="talk-abstract" name="talk-abstract" maxlength="500" required></textarea>
+                        <div class="char-counter" id="abstract-counter">0 / 500 (minimum 350)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="talk-description" class="form-label">
+                            Detailed Description (Private) <span class="required">*</span>
+                        </label>
+                        <span class="form-hint">For organizers only. Explain the story arc, key decisions, trade-offs, and concrete learnings. Include challenges and what you'd do differently. Be honest, not promotional. 500-1000 characters.</span>
+                        <textarea id="talk-description" name="talk-description" style="min-height: 200px;" maxlength="1000" required></textarea>
+                        <div class="char-counter" id="description-counter">0 / 1000 (minimum 500)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="learning-outcomes" class="form-label">
+                            Key Takeaways <span class="required">*</span>
+                        </label>
+                        <span class="form-hint">List 3-5 specific, actionable takeaways. What will attendees be able to do or think differently after your session?</span>
+                        <textarea id="learning-outcomes" name="learning-outcomes" placeholder="1. &#10;2. &#10;3. &#10;" style="min-height: 150px;" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alignment" class="form-label">
+                            Alignment with Theme <span class="required">*</span>
+                        </label>
+                        <span class="form-hint">How does your talk connect to "Designing What Could Possibly Go Right"? Be specific about the connection.</span>
+                        <textarea id="alignment" name="alignment" maxlength="500" required></textarea>
+                        <div class="char-counter" id="alignment-counter">0 / 500</div>
+                    </div>
+                </section>
+
+                <!-- Section 5: Speaker Information -->
+                <section class="section">
+                    <h2 class="section-title">5. Speaker Information</h2>
+                    <p class="section-description">Help us get to know you. All fields are required.</p>
+
+                    <div class="form-group">
+                        <label for="speaker-name" class="form-label">
+                            Full Name <span class="required">*</span>
+                        </label>
+                        <input type="text" id="speaker-name" name="speaker-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="speaker-email" class="form-label">
+                            Email Address <span class="required">*</span>
+                        </label>
+                        <input type="email" id="speaker-email" name="speaker-email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="speaker-phone" class="form-label">
+                            Phone Number <span class="required">*</span>
+                        </label>
+                        <span class="form-hint">Include country code (e.g., +91 for India)</span>
+                        <input type="tel" id="speaker-phone" name="speaker-phone" placeholder="+91" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="speaker-title" class="form-label">
+                            Professional Title <span class="required">*</span>
+                        </label>
+                        <span class="form-hint">Current role and organization (e.g., "Head of Design at Acme Corp")</span>
+                        <input type="text" id="speaker-title" name="speaker-title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="speaker-bio" class="form-label">
+                            Speaker Bio <span class="required">*</span>
+                        </label>
+                        <span class="form-hint">Professional bio for the conference program. Third-person, 100-200 words. Highlight relevant expertise and accomplishments.</span>
+                        <textarea id="speaker-bio" name="speaker-bio" maxlength="1500" required></textarea>
+                        <div class="char-counter" id="bio-counter">0 / 1500</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="speaker-photo" class="form-label">
+                            Professional Photo <span class="required">*</span>
+                        </label>
+                        <span class="form-hint">High-resolution headshot (minimum 800x800px, JPG or PNG)</span>
+                        <div class="file-upload">
+                            <input type="file" id="speaker-photo" name="speaker-photo" accept="image/jpeg,image/png" required>
+                            <label for="speaker-photo" class="file-upload-label">
+                                <span>📸</span>
+                                <span>Choose Photo or Drag Here</span>
+                            </label>
+                            <div class="file-name" id="photo-name"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="speaker-linkedin" class="form-label">
+                            LinkedIn Profile
+                        </label>
+                        <input type="url" id="speaker-linkedin" name="speaker-linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="speaker-website" class="form-label">
+                            Website / Portfolio
+                        </label>
+                        <input type="url" id="speaker-website" name="speaker-website" placeholder="https://">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="speaker-twitter" class="form-label">
+                            Twitter / X Handle
+                        </label>
+                        <input type="text" id="speaker-twitter" name="speaker-twitter" placeholder="@handle">
+                    </div>
+                </section>
+
+                <!-- Section 6: Co-Speakers (Workshop Only) -->
+                <section class="section" id="co-speaker-section" style="display: none;">
+                    <h2 class="section-title">6. Co-Workshop Leader</h2>
+                    <p class="section-description">If you're co-facilitating this workshop with someone, add their details here.</p>
+
+                    <div class="alert alert-info">
+                        You can add up to 2 co-leaders for workshops. All co-leaders must agree to facilitate together.
+                    </div>
+
+                    <div id="co-speakers-container"></div>
+
+                    <div class="add-co-speaker" id="add-co-speaker">
+                        <span>+</span>
+                        <span>Add Co-Workshop Leader</span>
+                    </div>
+                </section>
+
+                <!-- Section 7: Experience Level -->
+                <section class="section">
+                    <h2 class="section-title">7. Experience & Context</h2>
+                    <p class="section-description">Help us understand your background and speaking experience.</p>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Years of Professional Experience <span class="required">*</span>
+                        </label>
+                        <div class="option-grid">
+                            <div class="option-card">
+                                <input type="radio" name="experience" id="exp-student" value="student" required>
+                                <label for="exp-student">
+                                    <div class="option-title">
+                                        <span>Student</span>
+                                    </div>
+                                    <div class="option-description">Currently pursuing degree</div>
+                                </label>
+                            </div>
+                            <div class="option-card">
+                                <input type="radio" name="experience" id="exp-0-3" value="0-3" required>
+                                <label for="exp-0-3">
+                                    <div class="option-title">
+                                        <span>0-3 Years</span>
+                                    </div>
+                                    <div class="option-description">Early career</div>
+                                </label>
+                            </div>
+                            <div class="option-card">
+                                <input type="radio" name="experience" id="exp-4-7" value="4-7" required>
+                                <label for="exp-4-7">
+                                    <div class="option-title">
+                                        <span>4-7 Years</span>
+                                    </div>
+                                    <div class="option-description">Mid-career</div>
+                                </label>
+                            </div>
+                            <div class="option-card">
+                                <input type="radio" name="experience" id="exp-8-12" value="8-12" required>
+                                <label for="exp-8-12">
+                                    <div class="option-title">
+                                        <span>8-12 Years</span>
+                                    </div>
+                                    <div class="option-description">Senior professional</div>
+                                </label>
+                            </div>
+                            <div class="option-card">
+                                <input type="radio" name="experience" id="exp-13plus" value="13+" required>
+                                <label for="exp-13plus">
+                                    <div class="option-title">
+                                        <span>13+ Years</span>
+                                    </div>
+                                    <div class="option-description">Executive / C-level</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Speaking Experience <span class="required">*</span>
+                        </label>
+                        <div class="option-grid">
+                            <div class="option-card">
+                                <input type="radio" name="speaking-exp" id="speak-none" value="none" required>
+                                <label for="speak-none">
+                                    <div class="option-title">
+                                        <span>First-Time Speaker</span>
+                                    </div>
+                                    <div class="option-description">This would be my first conference talk</div>
+                                </label>
+                            </div>
+                            <div class="option-card">
+                                <input type="radio" name="speaking-exp" id="speak-some" value="some" required>
+                                <label for="speak-some">
+                                    <div class="option-title">
+                                        <span>Some Experience</span>
+                                    </div>
+                                    <div class="option-description">1-5 conference talks</div>
+                                </label>
+                            </div>
+                            <div class="option-card">
+                                <input type="radio" name="speaking-exp" id="speak-experienced" value="experienced" required>
+                                <label for="speak-experienced">
+                                    <div class="option-title">
+                                        <span>Experienced Speaker</span>
+                                    </div>
+                                    <div class="option-description">6+ conference talks</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="past-talks" class="form-label">
+                            Previous Speaking Engagements
+                        </label>
+                        <span class="form-hint">List notable conferences or events where you've spoken (optional but helpful for selection)</span>
+                        <textarea id="past-talks" name="past-talks" placeholder="e.g., &#10;• UXINDIA 2024 - 'Building Design Systems at Scale'&#10;• Config 2023 - Workshop on Design Tokens"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recording-link" class="form-label">
+                            Sample Talk Recording
+                        </label>
+                        <span class="form-hint">Link to YouTube, Vimeo, or similar (optional but strongly encouraged)</span>
+                        <input type="url" id="recording-link" name="recording-link" placeholder="https://">
+                    </div>
+                </section>
+
+                <!-- Section 8: Additional Requirements -->
+                <section class="section">
+                    <h2 class="section-title">8. Additional Details</h2>
+                    <p class="section-description">Help us prepare for your session.</p>
+
+                    <div class="form-group">
+                        <label for="special-requirements" class="form-label">
+                            Special Requirements
+                        </label>
+                        <span class="form-hint">Any accessibility needs, equipment, or setup requirements</span>
+                        <textarea id="special-requirements" name="special-requirements"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="attendee-materials" class="form-label">
+                            Materials for Attendees
+                        </label>
+                        <span class="form-hint">Will you provide handouts, worksheets, or downloadable resources? (Optional but encouraged for workshops)</span>
+                        <textarea id="attendee-materials" name="attendee-materials"></textarea>
+                    </div>
+                </section>
+
+                <!-- Section 9: Final Confirmations -->
+                <section class="section">
+                    <h2 class="section-title">9. Confirmations</h2>
+                    <p class="section-description">Please review and confirm the following.</p>
+
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="confirm-original" name="confirmations[]" value="original" required>
+                            <div class="checkbox-content">
+                                <label for="confirm-original" class="checkbox-label">
+                                    Original Content <span class="required">*</span>
+                                </label>
+                                <div class="checkbox-description">
+                                    This talk is based on original work and real experience, not recycled content or pure theory.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="confirm-non-promotional" name="confirmations[]" value="non-promotional" required>
+                            <div class="checkbox-content">
+                                <label for="confirm-non-promotional" class="checkbox-label">
+                                    Non-Promotional <span class="required">*</span>
+                                </label>
+                                <div class="checkbox-description">
+                                    This is not a product pitch or disguised advertisement. The focus is on insights and learnings.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="confirm-available" name="confirmations[]" value="available" required>
+                            <div class="checkbox-content">
+                                <label for="confirm-available" class="checkbox-label">
+                                    Availability <span class="required">*</span>
+                                </label>
+                                <div class="checkbox-description">
+                                    I am available for UXINDIA 2026 on 23, 24, 25, 26 & 27 Sept 2026 and will honor my commitment if selected.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="confirm-iteration" name="confirmations[]" value="iteration" required>
+                            <div class="checkbox-content">
+                                <label for="confirm-iteration" class="checkbox-label">
+                                    Collaboration <span class="required">*</span>
+                                </label>
+                                <div class="checkbox-description">
+                                    I am willing to iterate on my content with the curation team to ensure quality and alignment.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="confirm-recording" name="confirmations[]" value="recording" required>
+                            <div class="checkbox-content">
+                                <label for="confirm-recording" class="checkbox-label">
+                                    Recording Consent <span class="required">*</span>
+                                </label>
+                                <div class="checkbox-description">
+                                    I consent to my session being recorded and shared for educational purposes.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="confirm-coc" name="confirmations[]" value="coc" required>
+                            <div class="checkbox-content">
+                                <label for="confirm-coc" class="checkbox-label">
+                                    <a href="uxindia2026-code-of-conduct.html">Code of Conduct</a> <span class="required">*</span>
+                                </label>
+                                <div class="checkbox-description">
+                                    I agree to abide by UXINDIA's <a href="uxindia2026-code-of-conduct.html">Code of Conduct</a> and create an inclusive, respectful environment.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 10: Additional Comments -->
+                <section class="section">
+                    <h2 class="section-title">10. Additional Notes (Optional)</h2>
+                    <p class="section-description">Anything else you'd like the organizers to know?</p>
+
+                    <div class="form-group">
+                        <label for="additional-notes" class="form-label">
+                            Additional Comments
+                        </label>
+                        <span class="form-hint">Share any context, constraints, preferences, or questions for the organizing team</span>
+                        <textarea id="additional-notes" name="additional-notes"></textarea>
+                    </div>
+                </section>
+
+                <!-- Submit Button -->
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary">
+                        <span>Submit Your Proposal</span>
+                        <span>→</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="saveDraft">
+                        Save as Draft
+                    </button>
+                </div>
+
+                <div class="submission-details-callout submission-details-callout--bottom" role="note">
+                    <span>For official guidelines, themes, and submission policies, see</span>
+                    <a href="https://2026.ux-india.org/call-for-speakers/" target="_blank" rel="noopener noreferrer" class="submission-details-link">
+                        Submission Details
+                        <svg class="submission-details-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </a>
+                </div>
+            </form>
+
+            <!-- Success Message (Hidden Initially) -->
+            <div id="successMessage" class="success-message hidden" role="status" aria-live="polite">
+                <div class="success-message-inner">
+                    <div class="success-icon" aria-hidden="true">✓</div>
+                    <h2 class="success-title">Thank you for your submission</h2>
+                    <p class="success-lead">We appreciate you taking the time to share your proposal. We'll get back to you with our next steps.</p>
+
+                    <div class="success-meta-card">
+                        <p>We've sent a confirmation to</p>
+                        <p class="success-email" id="confirmEmail"></p>
+                        <p>You'll hear from us by <strong>1 June 2026</strong> regarding the status of your submission.</p>
+                    </div>
+
+                    <p class="success-support">
+                        Questions? <a href="mailto:team@umo.design">team@umo.design</a>
+                    </p>
+
+                    <div class="success-actions btn-group">
+                        <button type="button" class="btn btn-primary" id="submitNewProposal">
+                            <span>Submit New</span>
+                        </button>
+                        <a href="https://2026.ux-india.org/" class="btn btn-secondary">UXINDIA26 Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Character counters
+        function setupCharCounter(inputId, counterId, min = 0) {
+            const input = document.getElementById(inputId);
+            const counter = document.getElementById(counterId);
+            
+            input.addEventListener('input', () => {
+                const length = input.value.length;
+                const max = input.maxLength || Infinity;
+                counter.textContent = min > 0 
+                    ? `${length} / ${max} (minimum ${min})`
+                    : `${length} / ${max}`;
+                
+                if (length < min) {
+                    counter.classList.add('error');
+                    counter.classList.remove('warning');
+                } else if (length > max * 0.9) {
+                    counter.classList.add('warning');
+                    counter.classList.remove('error');
+                } else {
+                    counter.classList.remove('error', 'warning');
+                }
+            });
+        }
+
+        setupCharCounter('talk-title', 'title-counter');
+        setupCharCounter('talk-abstract', 'abstract-counter', 350);
+        setupCharCounter('talk-description', 'description-counter', 500);
+        setupCharCounter('alignment', 'alignment-counter');
+        setupCharCounter('speaker-bio', 'bio-counter');
+
+        // File upload display
+        document.getElementById('speaker-photo').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || '';
+            document.getElementById('photo-name').textContent = fileName ? `Selected: ${fileName}` : '';
+        });
+
+        // Workshop co-speaker logic
+        const formatInputs = document.querySelectorAll('input[name="format"]');
+        const coSpeakerSection = document.getElementById('co-speaker-section');
+        const coSpeakersContainer = document.getElementById('co-speakers-container');
+        let coSpeakerCount = 0;
+
+        formatInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                if (input.value === 'workshop' && input.checked) {
+                    coSpeakerSection.style.display = 'block';
+                } else {
+                    coSpeakerSection.style.display = 'none';
+                }
+            });
+        });
+
+        // Add co-speaker
+        document.getElementById('add-co-speaker').addEventListener('click', () => {
+            if (coSpeakerCount >= 2) {
+                alert('Maximum 2 co-leaders allowed');
+                return;
+            }
+
+            coSpeakerCount++;
+            const coSpeakerHtml = `
+                <div class="co-speaker-item" id="co-speaker-${coSpeakerCount}">
+                    <div class="co-speaker-header">
+                        <strong>Co-Leader ${coSpeakerCount}</strong>
+                        <span class="remove-co-speaker" onclick="removeCoSpeaker(${coSpeakerCount})">✕ Remove</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Full Name <span class="required">*</span></label>
+                        <input type="text" name="co-speaker-name-${coSpeakerCount}" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email <span class="required">*</span></label>
+                        <input type="email" name="co-speaker-email-${coSpeakerCount}" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Professional Title <span class="required">*</span></label>
+                        <input type="text" name="co-speaker-title-${coSpeakerCount}" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Bio (100-200 words) <span class="required">*</span></label>
+                        <textarea name="co-speaker-bio-${coSpeakerCount}" maxlength="1500" required></textarea>
+                    </div>
+                </div>
+            `;
+            coSpeakersContainer.insertAdjacentHTML('beforeend', coSpeakerHtml);
+        });
+
+        window.removeCoSpeaker = function(id) {
+            document.getElementById(`co-speaker-${id}`).remove();
+            coSpeakerCount--;
+        };
+
+        // Progress bar
+        const form = document.getElementById('cfpForm');
+        const progressFill = document.getElementById('progressFill');
+        
+        function updateProgress() {
+            const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+            const filled = Array.from(inputs).filter(input => {
+                if (input.type === 'radio' || input.type === 'checkbox') {
+                    return document.querySelector(`input[name="${input.name}"]:checked`);
+                }
+                return input.value.trim() !== '';
+            }).length;
+            
+            const progress = Math.min((filled / inputs.length) * 100, 100);
+            progressFill.style.width = progress + '%';
+        }
+
+        form.addEventListener('input', updateProgress);
+        form.addEventListener('change', updateProgress);
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Validate abstract length
+            const abstract = document.getElementById('talk-abstract').value;
+            if (abstract.length < 350) {
+                alert('Abstract must be at least 350 characters');
+                return;
+            }
+
+            // Validate description length
+            const description = document.getElementById('talk-description').value;
+            if (description.length < 500) {
+                alert('Detailed description must be at least 500 characters');
+                return;
+            }
+
+            // Get email for confirmation
+            const email = document.getElementById('speaker-email').value;
+            document.getElementById('confirmEmail').textContent = email;
+
+            // Hide form and progress, show success
+            form.style.display = 'none';
+            document.getElementById('formProgressWrap').classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.getElementById('submitNewProposal').addEventListener('click', () => {
+            form.reset();
+            document.getElementById('photo-name').textContent = '';
+            coSpeakersContainer.innerHTML = '';
+            coSpeakerCount = 0;
+            coSpeakerSection.style.display = 'none';
+            progressFill.style.width = '10%';
+            form.style.display = '';
+            document.getElementById('formProgressWrap').classList.remove('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+            ['talk-title', 'talk-abstract', 'talk-description', 'alignment', 'speaker-bio'].forEach((id) => {
+                const el = document.getElementById(id);
+                if (el) el.dispatchEvent(new Event('input', { bubbles: true }));
+            });
+            updateProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Save draft
+        document.getElementById('saveDraft').addEventListener('click', () => {
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            localStorage.setItem('uxindia-cfp-draft', JSON.stringify(data));
+            alert('Draft saved! You can return to this form later.');
+        });
+
+        // Load draft on page load
+        window.addEventListener('load', () => {
+            const draft = localStorage.getItem('uxindia-cfp-draft');
+            if (draft && confirm('You have a saved draft. Would you like to load it?')) {
+                const data = JSON.parse(draft);
+                Object.keys(data).forEach(key => {
+                    const input = form.querySelector(`[name="${key}"]`);
+                    if (input) {
+                        if (input.type === 'radio' || input.type === 'checkbox') {
+                            const option = form.querySelector(`[name="${key}"][value="${data[key]}"]`);
+                            if (option) option.checked = true;
+                        } else {
+                            input.value = data[key];
+                        }
+                    }
+                });
+                updateProgress();
+            }
+        });
+    </script>
+</body>
+</html>
