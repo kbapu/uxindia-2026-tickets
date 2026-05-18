@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { AddOnItem, PassTier, TrackVariant } from "@/types/pricing";
-import { formatPrice } from "@/lib/format";
+import { formatPrice, getTierCtaLabel, isTierCtaDisabled } from "@/lib/format";
 import { TicketStackCard } from "./TicketStackCard";
 import { TierAddOnPanel } from "./TierAddOnPanel";
 
@@ -28,6 +28,8 @@ export function PricingTierRow({
 
   const isSummit = variant === "summit";
   const isVip = tier.cardStyle === "vip";
+  const ctaDisabled = isTierCtaDisabled(tier);
+  const ctaLabel = getTierCtaLabel(tier);
 
   const textMain = isSummit ? "text-text-primary" : "text-text-on-yellow";
   const textMuted = isSummit
@@ -49,7 +51,7 @@ export function PricingTierRow({
     : "border border-black/25 text-forum-badge-text";
 
   const ctaClass = (() => {
-    if (tier.ctaDisabled) {
+    if (ctaDisabled) {
       return isSummit
         ? "cursor-not-allowed border border-white/20 bg-black/20 text-white/50"
         : "cursor-not-allowed border border-black/20 bg-black/10 text-text-on-yellow/50";
@@ -140,18 +142,18 @@ export function PricingTierRow({
                 <p className={`mt-4 font-sans text-sm ${textMuted}`}>{tier.savingsNote}</p>
               )}
 
-              {tier.ctaDisabled ? (
+              {ctaDisabled ? (
                 <span
                   className={`mt-5 flex w-full items-center justify-center rounded-full px-5 py-3 font-sans text-sm font-medium ${ctaClass}`}
                 >
-                  {tier.ctaLabel}
+                  {ctaLabel}
                 </span>
               ) : (
                 <Link
                   href={tier.ctaHref}
                   className={`mt-5 flex w-full items-center justify-center rounded-full px-5 py-3 font-sans text-sm font-medium transition ${ctaClass}`}
                 >
-                  {tier.ctaLabel}
+                  {ctaLabel}
                 </Link>
               )}
             </div>

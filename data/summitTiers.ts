@@ -92,7 +92,7 @@ export const summitTiers: PassTier[] = [
   },
   {
     id: "summit-grand-conf",
-    name: "Grand Conf Pass — Day 2",
+    name: "Grand Conf Pass — Sep 24",
     badge: "Single Day",
     badgeVariant: "default",
     price: 21999,
@@ -101,7 +101,7 @@ export const summitTiers: PassTier[] = [
       "Single-day access to the Grand Ballroom on Sep 24. Keynotes, panels and networking dinner included.",
     note: LIMITED_SEATS_NOTE,
     inclusions: [
-      "Day 2 (Sep 24) Grand Ballroom only",
+      "Sep 24 — Grand Ballroom only",
       "Networking Dinner, Sep 24",
       "Conference kit",
       "Lunch & high tea",

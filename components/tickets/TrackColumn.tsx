@@ -1,7 +1,8 @@
 import { TrackHeader } from "./TrackHeader";
 import { PricingAccordion } from "./PricingAccordion";
+import { TrackAddOns } from "./TrackAddOns";
 import { TrackBuyCta } from "./TrackBuyCta";
-import type { PassTier, AddOnItem } from "@/types/pricing";
+import type { PassTier } from "@/types/pricing";
 import { summitTierAddOns, forumTierAddOns } from "@/data/tierAddOns";
 import { waitlistUrl } from "@/lib/format";
 
@@ -29,12 +30,8 @@ export function SummitTrackColumn({ tiers, defaultOpenId }: SummitColumnProps) {
         venue="The Leela Bhartiya City, Bengaluru"
         whoShouldAttend="Senior design professionals, heads of design, CXOs, CDOs, and strategic decision-makers shaping design inside their organisations."
       />
-      <PricingAccordion
-        tiers={tiers}
-        variant="summit"
-        defaultOpenId={defaultOpenId}
-        addOns={summitTierAddOns}
-      />
+      <PricingAccordion tiers={tiers} variant="summit" defaultOpenId={defaultOpenId} />
+      <TrackAddOns addOns={summitTierAddOns} />
       <TrackBuyCta variant="summit" href={primaryHref} />
     </div>
   );
@@ -62,7 +59,6 @@ export function ForumTrackColumn({
         tiers={professionalTiers}
         variant="forum"
         defaultOpenId={defaultOpenProId}
-        addOns={forumTierAddOns}
       />
       <PricingAccordion
         tiers={studentTiers}
@@ -70,8 +66,8 @@ export function ForumTrackColumn({
         defaultOpenId={defaultOpenStudentId}
         sectionLabel="For Full-Time Students · Student ID Required at Registration"
         isStudent
-        addOns={forumTierAddOns}
       />
+      <TrackAddOns addOns={forumTierAddOns} />
       <TrackBuyCta variant="forum" href={primaryHref} />
     </div>
   );
