@@ -19,16 +19,16 @@ export function TrackHeader({
   const isSummit = variant === "summit";
 
   return (
-    <TicketStackCard stackClassName={isSummit ? "bg-[#0f2e26]" : "bg-[#8a6d14]"}>
+    <TicketStackCard stackColor={isSummit ? "#114F47" : "#DCAC3B"}>
       <div
-        className={`px-8 py-10 sm:px-10 sm:py-12 ${
-          isSummit ? "bg-card-summit text-text-primary" : "bg-card-forum text-text-on-yellow"
+        className={`flex min-h-[260px] flex-col justify-between px-7 py-8 md:px-10 md:py-10 ${
+          isSummit ? "bg-track-summit text-text-primary" : "bg-track-forum text-text-on-yellow"
         }`}
       >
-        <h2 className="font-reckless text-4xl font-medium leading-none sm:text-5xl lg:text-[3.5rem]">
+        <h2 className="font-uxi text-4xl font-medium leading-[1.08] sm:text-5xl lg:text-[3.25rem]">
           {title}
         </h2>
-        <p className="font-reckless mt-4 text-3xl leading-none sm:text-4xl">{dates}</p>
+        <p className="font-uxi mt-4 text-3xl leading-[1.08] sm:text-4xl">{dates}</p>
         <p
           className={`mt-3 font-sans text-base ${
             isSummit ? "text-[var(--text-muted-teal)]" : "text-[var(--text-muted-yellow)]"

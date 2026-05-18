@@ -17,7 +17,7 @@ export function SiteNav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[#0D0D0D]/95 py-3 backdrop-blur-md">
-      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-6">
+      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
         <Link href={SITE_LINKS.home} className="relative h-9 w-40 shrink-0 md:h-10 md:w-44">
           <Image
             src={LOGO_URL}
@@ -28,7 +28,7 @@ export function SiteNav() {
           />
         </Link>
 
-        <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
+        <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex lg:gap-10">
           {NAV_LINKS.map((link) => (
             <li key={link.label}>
               <Link
@@ -43,7 +43,7 @@ export function SiteNav() {
 
         <Link
           href={SITE_LINKS.waitlist}
-          className="hidden items-center gap-2 rounded-full bg-brand px-5 py-2.5 font-sans text-sm font-semibold text-white transition hover:scale-105 hover:shadow-lg hover:shadow-brand/30 md:inline-flex"
+          className="hidden items-center gap-2 rounded-full bg-brand px-5 py-2.5 font-sans text-sm font-semibold text-white transition hover:scale-105 hover:shadow-lg hover:shadow-[#E85520]/30 md:inline-flex"
         >
           Buy Tickets
           <span aria-hidden>→</span>

@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "UXI Leadership Condensed";
+  src: url("https://uxindia-changespreview.vercel.app/UXILeadershipCondensed.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Reckless Condensed";
   src: url("/fonts/RecklessCondensed-Medium.woff2") format("woff2");
   font-weight: 500;
@@ -20,19 +29,22 @@
 
 :root {
   --bg-page: #0d0d0d;
-  --bg-card-summit: #1a4d40;
-  --bg-card-forum: #c9a227;
-  --bg-addon-summit: #132e28;
-  --bg-addon-forum: #a07e18;
+  --bg-cream: #f5f0e8;
+  --track-summit: #1b7a6e;
+  --track-forum: #f5bf42;
+  --bg-card-summit: #114f47;
+  --bg-card-forum: #dcac3b;
+  --bg-addon-summit: #0e3d36;
+  --bg-addon-forum: #c49a2e;
   --text-primary: #f5f4f0;
   --text-on-yellow: #1a1200;
   --text-muted-teal: rgba(245, 244, 240, 0.65);
   --text-muted-yellow: rgba(26, 18, 0, 0.6);
   --brand-orange: #e85520;
-  --summit-primary: #1a4d40;
-  --summit-border: #2a6b58;
-  --forum-primary: #c9a227;
-  --forum-border: #e2b82a;
+  --summit-primary: #1b7a6e;
+  --summit-border: #2a8f80;
+  --forum-primary: #f5bf42;
+  --forum-border: #e6a817;
   --radius-card: 16px;
 }
 
@@ -47,7 +59,11 @@ body {
 }
 
 .font-reckless {
-  font-family: "Reckless Condensed", Georgia, serif;
+  font-family: "UXI Leadership Condensed", "Reckless Condensed", Georgia, serif;
+}
+
+.font-uxi {
+  font-family: "UXI Leadership Condensed", "Reckless Condensed", Georgia, serif;
 }
 
 .accordion-panel {

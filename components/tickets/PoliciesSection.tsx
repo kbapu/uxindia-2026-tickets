@@ -5,7 +5,7 @@ export function PoliciesSection() {
     <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-24">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <h2 className="font-reckless text-4xl font-medium text-text-primary md:text-5xl lg:text-6xl">
+          <h2 className="font-uxi text-4xl font-medium leading-[1.1] text-text-primary md:text-5xl lg:text-6xl">
             Policies &amp; Terms
           </h2>
           <p className="mx-auto mt-4 max-w-md font-sans text-sm text-text-primary/40">

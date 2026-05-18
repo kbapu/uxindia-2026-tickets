@@ -11,13 +11,13 @@ import { studentTiers } from "@/data/studentTiers";
 
 export default function TicketsPage() {
   return (
-    <>
+    <div className="bg-cream">
       <SiteNav />
 
-      <main className="bg-page">
+      <main className="bg-page min-h-screen pt-32 pb-24">
         <TicketsHero />
 
-        <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-start">
             <SummitTrackColumn tiers={summitTiers} defaultOpenId="summit-seb" />
             <ForumTrackColumn
@@ -27,15 +27,16 @@ export default function TicketsPage() {
               defaultOpenStudentId="forum-seb-student"
             />
           </div>
-        </section>
 
-        <BundleBanner />
+          <BundleBanner />
+        </div>
+
         <PoliciesSection />
         <TicketsFAQ />
         <FooterCTA />
       </main>
 
       <SiteFooter />
-    </>
+    </div>
   );
 }

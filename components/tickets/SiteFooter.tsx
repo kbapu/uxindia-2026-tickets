@@ -23,7 +23,7 @@ const FOOTER_LINKS = {
 export function FooterCTA() {
   return (
     <section className="border-t border-white/[0.06] bg-page py-20 text-center">
-      <h2 className="font-reckless mx-auto max-w-2xl px-4 text-4xl font-medium leading-tight text-text-primary sm:text-5xl">
+      <h2 className="font-uxi mx-auto max-w-2xl px-4 text-4xl font-medium leading-[1.1] text-text-primary sm:text-5xl">
         Don&apos;t watch from the sidelines. Lead the room.
       </h2>
       <Link
@@ -39,7 +39,7 @@ export function FooterCTA() {
 export function SiteFooter() {
   return (
     <footer className="border-t border-white/[0.06] bg-page">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-[2fr_1fr_1fr] lg:px-8">
         <div className="lg:col-span-1">
           <Link href={SITE_LINKS.home} className="relative block h-8 w-36">
             <Image
@@ -55,7 +55,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h3 className="font-sans text-xs font-medium uppercase tracking-wider text-text-primary/40">
+          <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-text-primary/30">
             Quick Links
           </h3>
           <ul className="mt-4 space-y-2">
@@ -63,7 +63,7 @@ export function SiteFooter() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="font-sans text-sm text-text-primary/70 transition hover:text-text-primary"
+                  className="font-sans text-sm text-text-primary/50 transition hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -72,42 +72,44 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div>
-          <h3 className="font-sans text-xs font-medium uppercase tracking-wider text-text-primary/40">
-            UMO Initiatives
-          </h3>
-          <ul className="mt-4 space-y-2">
-            {FOOTER_LINKS.umo.map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  className="font-sans text-sm text-text-primary/70 transition hover:text-text-primary"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div className="grid grid-cols-2 gap-6">
+          <div>
+            <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-text-primary/30">
+              UMO Initiatives
+            </h3>
+            <ul className="mt-4 space-y-2">
+              {FOOTER_LINKS.umo.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="font-sans text-sm text-text-primary/50 transition hover:text-[#E85520]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div>
-          <h3 className="font-sans text-xs font-medium uppercase tracking-wider text-text-primary/40">
-            Connect
-          </h3>
-          <ul className="mt-4 space-y-2">
-            {FOOTER_LINKS.social.map((link) => (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans text-sm text-text-primary/70 transition hover:text-text-primary"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-text-primary/30">
+              Connect
+            </h3>
+            <ul className="mt-4 space-y-2">
+              {FOOTER_LINKS.social.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-sans text-sm text-text-primary/50 transition hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 

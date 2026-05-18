@@ -10,10 +10,13 @@ const config: Config = {
     extend: {
       colors: {
         page: "#0D0D0D",
-        "card-summit": "#1A4D40",
-        "card-forum": "#C9A227",
-        "addon-summit": "#132E28",
-        "addon-forum": "#A07E18",
+        cream: "#F5F0E8",
+        "track-summit": "#1B7A6E",
+        "track-forum": "#F5BF42",
+        "card-summit": "#114F47",
+        "card-forum": "#DCAC3B",
+        "addon-summit": "#0E3D36",
+        "addon-forum": "#C49A2E",
         "text-primary": "#F5F4F0",
         "text-on-yellow": "#1A1200",
         brand: "#E85520",
@@ -25,7 +28,13 @@ const config: Config = {
         "vip-gold-light": "#FFE58A",
       },
       fontFamily: {
-        reckless: ["'Reckless Condensed'", "Georgia", "serif"],
+        reckless: [
+          "'UXI Leadership Condensed'",
+          "'Reckless Condensed'",
+          "Georgia",
+          "serif",
+        ],
+        uxi: ["'UXI Leadership Condensed'", "'Reckless Condensed'", "Georgia", "serif"],
         sans: ["'DM Sans'", "system-ui", "sans-serif"],
       },
       borderRadius: {

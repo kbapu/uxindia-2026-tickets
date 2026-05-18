@@ -11,7 +11,7 @@ export function AddOnCard({ addOn }: AddOnCardProps) {
   const isSummit = addOn.variant === "summit";
 
   const cardBg = isSummit ? "bg-addon-summit text-text-primary" : "bg-addon-forum text-text-on-yellow";
-  const stackBg = isSummit ? "bg-[#0a221c]" : "bg-[#8a6d14]";
+  const stackColor = isSummit ? "#0E3D36" : "#C49A2E";
   const textMuted = isSummit
     ? "text-[var(--text-muted-teal)]"
     : "text-[var(--text-muted-yellow)]";
@@ -20,7 +20,7 @@ export function AddOnCard({ addOn }: AddOnCardProps) {
     : "border border-black/25 text-forum-badge-text";
 
   return (
-    <TicketStackCard stackClassName={stackBg}>
+    <TicketStackCard stackColor={stackColor}>
       <article className={`p-6 sm:p-8 ${cardBg}`}>
         <div className="flex items-start justify-between gap-4">
           <span
@@ -29,14 +29,14 @@ export function AddOnCard({ addOn }: AddOnCardProps) {
             {addOn.badge}
           </span>
           <div className="text-right">
-            <p className="font-reckless text-3xl font-medium leading-none sm:text-4xl">
+            <p className="font-uxi text-3xl font-medium leading-none sm:text-4xl">
               {formatPrice(addOn.price)}
             </p>
             <p className={`font-sans text-xs ${textMuted}`}>+ 18% GST</p>
           </div>
         </div>
 
-        <h3 className="font-reckless mt-5 text-[1.75rem] leading-tight sm:text-[2rem]">
+        <h3 className="font-uxi mt-5 text-[1.75rem] leading-[1.08] sm:text-[2rem]">
           {addOn.title}
         </h3>
         {addOn.saleStarts && (

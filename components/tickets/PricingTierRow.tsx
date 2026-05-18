@@ -1,11 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import type { AddOnItem, PassTier, TrackVariant } from "@/types/pricing";
+import type { PassTier, TrackVariant } from "@/types/pricing";
 import { formatPrice, getTierCtaLabel, isTierCtaDisabled } from "@/lib/format";
 import { TicketStackCard } from "./TicketStackCard";
-import { TierAddOnPanel } from "./TierAddOnPanel";
 
 type PricingTierRowProps = {
   tier: PassTier;
@@ -13,7 +11,6 @@ type PricingTierRowProps = {
   isOpen: boolean;
   onToggle: () => void;
   isStudent?: boolean;
-  addOns?: AddOnItem[];
 };
 
 export function PricingTierRow({
@@ -22,9 +19,7 @@ export function PricingTierRow({
   isOpen,
   onToggle,
   isStudent = false,
-  addOns = [],
 }: PricingTierRowProps) {
-  const [addOnsOpen, setAddOnsOpen] = useState(false);
 
   const isSummit = variant === "summit";
   const isVip = tier.cardStyle === "vip";
@@ -44,7 +39,7 @@ export function PricingTierRow({
         ? "bg-addon-forum"
         : "bg-card-forum";
 
-  const stackBg = isSummit ? "bg-[#0f2e26]" : "bg-[#8a6d14]";
+  const stackColor = isSummit ? "#114F47" : "#DCAC3B";
 
   const outlineBadge = isSummit
     ? "border border-white/35 text-summit-badge-text"
@@ -69,7 +64,7 @@ export function PricingTierRow({
   })();
 
   return (
-    <TicketStackCard stackClassName={stackBg}>
+    <TicketStackCard stackColor={stackColor}>
       <article className={`p-6 sm:p-8 ${cardBg} ${textMain}`}>
         <button
           type="button"
@@ -91,7 +86,7 @@ export function PricingTierRow({
               )}
             </div>
             <div className="flex shrink-0 items-center gap-2">
-              <p className="font-reckless text-3xl font-medium leading-none sm:text-4xl">
+              <p className="font-uxi text-3xl font-medium leading-none sm:text-4xl">
                 {formatPrice(tier.price)}
               </p>
               <svg
@@ -110,7 +105,7 @@ export function PricingTierRow({
             </div>
           </div>
 
-          <h3 className="font-reckless mt-5 text-[1.75rem] leading-tight sm:text-[2rem]">
+          <h3 className="font-uxi mt-5 text-[1.75rem] leading-[1.08] sm:text-[2rem]">
             {tier.name}
           </h3>
           <p className={`mt-2 font-sans text-sm font-medium ${textMuted}`}>
@@ -160,21 +155,6 @@ export function PricingTierRow({
           </div>
         </div>
 
-        {addOns.length > 0 && (
-          <>
-            <button
-              type="button"
-              className={`mt-5 font-sans text-sm font-medium underline-offset-2 hover:underline ${
-                isSummit ? "text-summit-badge-text" : "text-forum-badge-text"
-              }`}
-              onClick={() => setAddOnsOpen((open) => !open)}
-              aria-expanded={addOnsOpen}
-            >
-              {addOnsOpen ? "Hide add-ons" : "Show add-ons"}
-            </button>
-            {addOnsOpen && <TierAddOnPanel addOns={addOns} variant={variant} />}
-          </>
-        )}
       </article>
     </TicketStackCard>
   );
