@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { AddOnItem } from "@/types/pricing";
-import { formatPrice } from "@/lib/format";
+import { PriceWithGst } from "./PriceWithGst";
 import { TicketStackCard } from "./TicketStackCard";
 
 type AddOnCardProps = {
@@ -28,12 +28,7 @@ export function AddOnCard({ addOn }: AddOnCardProps) {
           >
             {addOn.badge}
           </span>
-          <div className="text-right">
-            <p className="font-uxi text-3xl font-medium leading-none sm:text-4xl">
-              {formatPrice(addOn.price)}
-            </p>
-            <p className={`font-sans text-xs ${textMuted}`}>+ 18% GST</p>
-          </div>
+          <PriceWithGst price={addOn.price} gstClassName={textMuted} />
         </div>
 
         <h3 className="font-uxi mt-5 text-[1.75rem] leading-[1.08] sm:text-[2rem]">

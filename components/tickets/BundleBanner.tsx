@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatPrice } from "@/lib/format";
+import { PriceWithGst } from "./PriceWithGst";
 
 export function BundleBanner() {
   return (
@@ -31,17 +31,19 @@ export function BundleBanner() {
           <div className="space-y-3 font-sans text-white">
             <div>
               <p className="text-sm text-white/70">Early Bird Bundle</p>
-              <p className="font-uxi text-3xl text-white">
-                {formatPrice(28999)}{" "}
-                <span className="font-sans text-sm font-normal text-white/70">+ GST</span>
-              </p>
+              <PriceWithGst
+                price={28999}
+                gstClassName="text-white/60"
+                className="mt-1 text-left md:text-right"
+              />
             </div>
             <div>
               <p className="text-sm text-white/70">Standard Bundle</p>
-              <p className="font-uxi text-3xl text-white">
-                {formatPrice(35999)}{" "}
-                <span className="font-sans text-sm font-normal text-white/70">+ GST</span>
-              </p>
+              <PriceWithGst
+                price={35999}
+                gstClassName="text-white/60"
+                className="mt-1 text-left md:text-right"
+              />
             </div>
             <p className="text-sm text-white/60">Save ₹3,950 vs. buying separately</p>
           </div>

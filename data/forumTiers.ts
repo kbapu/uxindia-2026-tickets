@@ -92,7 +92,7 @@ export const forumProfessionalTiers: PassTier[] = [
 export const forumAddOn = {
   id: "addon-tshirt",
   badge: "Add On",
-  price: 899,
+  price: 599,
   title: "T-Shirt",
   description: "Official UXINDIA 2026 conference T-shirt.",
   note: LIMITED_SEATS_NOTE,

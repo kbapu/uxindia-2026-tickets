@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { AddOnItem, TrackVariant } from "@/types/pricing";
-import { formatPrice } from "@/lib/format";
+import { PriceWithGst } from "./PriceWithGst";
 
 type TierAddOnPanelProps = {
   addOns: AddOnItem[];
@@ -29,9 +29,11 @@ export function TierAddOnPanel({ addOns, variant }: TierAddOnPanelProps) {
                 <p className={`mt-1 font-sans text-xs italic ${textMuted}`}>{addOn.note}</p>
               )}
             </div>
-            <p className={`shrink-0 font-reckless text-2xl font-medium ${textMain}`}>
-              {formatPrice(addOn.price)}
-            </p>
+            <PriceWithGst
+              price={addOn.price}
+              gstClassName={textMuted}
+              className="shrink-0 [&_p:first-child]:text-2xl sm:[&_p:first-child]:text-3xl"
+            />
           </div>
           <Link
             href={addOn.ctaHref}

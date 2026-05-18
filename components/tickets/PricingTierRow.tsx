@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import type { PassTier, TrackVariant } from "@/types/pricing";
-import { formatPrice, getTierCtaLabel, isTierCtaDisabled } from "@/lib/format";
+import { getTierCtaLabel, isTierCtaDisabled } from "@/lib/format";
+import { PriceWithGst } from "./PriceWithGst";
 import { TicketStackCard } from "./TicketStackCard";
 
 type PricingTierRowProps = {
@@ -85,10 +86,8 @@ export function PricingTierRow({
                 </span>
               )}
             </div>
-            <div className="flex shrink-0 items-center gap-2">
-              <p className="font-uxi text-3xl font-medium leading-none sm:text-4xl">
-                {formatPrice(tier.price)}
-              </p>
+            <div className="flex shrink-0 items-start gap-2">
+              <PriceWithGst price={tier.price} gstClassName={textMuted} />
               <svg
                 className="chevron-icon mt-1 shrink-0 opacity-70"
                 data-open={isOpen}
@@ -109,7 +108,7 @@ export function PricingTierRow({
             {tier.name}
           </h3>
           <p className={`mt-2 font-sans text-sm font-medium ${textMuted}`}>
-            Starts {tier.saleStarts} · + 18% GST
+            Starts {tier.saleStarts}
           </p>
           <p className={`mt-3 font-sans text-[15px] leading-relaxed ${textMuted}`}>
             {tier.description}

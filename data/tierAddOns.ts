@@ -7,7 +7,7 @@ import { forumAddOn } from "@/data/forumTiers";
 export const summitTshirtAddOn: AddOnItem = {
   id: "addon-tshirt-summit",
   badge: "Add On",
-  price: 899,
+  price: 599,
   title: "T-Shirt",
   description: "Official UXINDIA 2026 conference T-shirt.",
   note: LIMITED_SEATS_NOTE,
