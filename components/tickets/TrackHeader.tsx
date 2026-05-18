@@ -6,9 +6,16 @@ type TrackHeaderProps = {
   title: string;
   dates: string;
   venue: string;
+  whoShouldAttend: string;
 };
 
-export function TrackHeader({ variant, title, dates, venue }: TrackHeaderProps) {
+export function TrackHeader({
+  variant,
+  title,
+  dates,
+  venue,
+  whoShouldAttend,
+}: TrackHeaderProps) {
   const isSummit = variant === "summit";
 
   return (
@@ -29,6 +36,26 @@ export function TrackHeader({ variant, title, dates, venue }: TrackHeaderProps) 
         >
           {venue}
         </p>
+        <div
+          className={`mt-8 border-t pt-6 sm:mt-7 sm:pt-5 ${
+            isSummit ? "border-white/10" : "border-black/15"
+          }`}
+        >
+          <p
+            className={`font-sans text-[11px] font-semibold uppercase tracking-[0.12em] ${
+              isSummit ? "text-summit-badge-text" : "text-forum-badge-text"
+            }`}
+          >
+            Who should attend
+          </p>
+          <p
+            className={`mt-2 font-sans text-[15px] leading-relaxed ${
+              isSummit ? "text-text-primary/90" : "text-text-on-yellow/90"
+            }`}
+          >
+            {whoShouldAttend}
+          </p>
+        </div>
       </div>
     </TicketStackCard>
   );
