@@ -32,6 +32,7 @@ export function SummitTrackColumn({
         title="Leadership Summit"
         dates="23–25 Sept"
         venue="The Leela Bhartiya City, Bengaluru"
+        whoShouldAttend="Senior design professionals, heads of design, CXOs, CDOs, and strategic decision-makers shaping design inside their organisations."
       />
       <PricingAccordion tiers={tiers} variant="summit" defaultOpenId={defaultOpenId} />
       <AddOnCard addOn={addOn} />
@@ -53,6 +54,7 @@ export function ForumTrackColumn({
         title="Rising Leaders Forum"
         dates="26–27 Sept"
         venue="Srishti Institute of Art, Design and Technology, Bengaluru"
+        whoShouldAttend="Practitioners, early-career designers, and full-time students building craft, leadership mindset, and career momentum in design."
       />
       <PricingAccordion
         tiers={professionalTiers}

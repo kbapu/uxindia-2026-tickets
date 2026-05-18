@@ -40,6 +40,15 @@ export function AddOnCard({ addOn }: AddOnCardProps) {
       </div>
 
       <h3 className="font-reckless mt-5 text-[1.75rem]">{addOn.title}</h3>
+      {addOn.saleStarts && (
+        <p
+          className={`mt-2 font-sans text-sm font-medium ${
+            isSummit ? "text-[var(--text-muted-teal)]" : "text-[var(--text-muted-yellow)]"
+          }`}
+        >
+          Starts {addOn.saleStarts}
+        </p>
+      )}
       <p
         className={`mt-2 font-sans text-[15px] leading-relaxed ${
           isSummit ? "text-[var(--text-muted-teal)]" : "text-[var(--text-muted-yellow)]"
@@ -49,7 +58,7 @@ export function AddOnCard({ addOn }: AddOnCardProps) {
       </p>
       {addOn.note && (
         <p
-          className={`mt-2 font-sans text-sm ${
+          className={`mt-2 font-sans text-sm italic ${
             isSummit ? "text-[var(--text-muted-teal)]" : "text-[var(--text-muted-yellow)]"
           }`}
         >

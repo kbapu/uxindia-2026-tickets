@@ -1,4 +1,5 @@
 import type { PassTier } from "@/types/pricing";
+import { LIMITED_SEATS_NOTE } from "@/types/pricing";
 import { waitlistUrl } from "@/lib/format";
 
 const SUMMIT_DESCRIPTION =
@@ -19,8 +20,9 @@ export const summitTiers: PassTier[] = [
     badge: "Super Early Bird",
     badgeVariant: "default",
     price: 14999,
+    saleStarts: "25 May",
     description: SUMMIT_DESCRIPTION,
-    note: "*Limited Seats Only",
+    note: LIMITED_SEATS_NOTE,
     inclusions: SUMMIT_INCLUSIONS,
     savingsNote: "Save ₹13,000 vs. walk-in",
     ctaLabel: "Register Now →",
@@ -32,8 +34,9 @@ export const summitTiers: PassTier[] = [
     badge: "Early Bird",
     badgeVariant: "default",
     price: 17999,
+    saleStarts: "26 May",
     description: SUMMIT_DESCRIPTION,
-    note: "*Limited Seats Only",
+    note: LIMITED_SEATS_NOTE,
     inclusions: SUMMIT_INCLUSIONS,
     savingsNote: "Save ₹10,000 vs. walk-in",
     ctaLabel: "Register Now →",
@@ -45,9 +48,10 @@ export const summitTiers: PassTier[] = [
     badge: "Regular",
     badgeVariant: "popular",
     price: 23999,
+    saleStarts: "26 Jun",
     description:
       "2-day access to Grand Keynotes, Deep Dives, Spark Sessions and Panel Discussions. Networking Dinner included on 24th Sept. Group discounts available for 4+ attendees.",
-    note: "*Limited Seats Only",
+    note: LIMITED_SEATS_NOTE,
     inclusions: [...SUMMIT_INCLUSIONS, "Group discount eligible (4+)"],
     savingsNote: "Save ₹4,000 vs. walk-in",
     highlight: true,
@@ -61,10 +65,11 @@ export const summitTiers: PassTier[] = [
     badge: "Last Minute",
     badgeVariant: "disabled",
     price: 25999,
+    saleStarts: "17 Aug",
     description: SUMMIT_DESCRIPTION,
-    note: "*Opens Sep 11, 2026",
+    note: LIMITED_SEATS_NOTE,
     inclusions: SUMMIT_INCLUSIONS,
-    opensOn: "2026-09-11",
+    opensOn: "2026-08-17",
     ctaLabel: "Notify Me →",
     ctaHref: waitlistUrl("summit-last-minute"),
     ctaDisabled: true,
@@ -76,8 +81,9 @@ export const summitTiers: PassTier[] = [
     badge: "Walk-in · At the Door",
     badgeVariant: "disabled",
     price: 27999,
+    saleStarts: "23 Sep",
     description: SUMMIT_DESCRIPTION,
-    note: "Available at venue on Sep 23",
+    note: LIMITED_SEATS_NOTE,
     inclusions: SUMMIT_INCLUSIONS,
     ctaLabel: "Available at Venue",
     ctaHref: "#",
@@ -90,9 +96,10 @@ export const summitTiers: PassTier[] = [
     badge: "Single Day",
     badgeVariant: "default",
     price: 21999,
+    saleStarts: "26 Jun",
     description:
       "Single-day access to the Grand Ballroom on Sep 24. Keynotes, panels and networking dinner included.",
-    note: "*Limited Seats Only",
+    note: LIMITED_SEATS_NOTE,
     inclusions: [
       "Day 2 (Sep 24) Grand Ballroom only",
       "Networking Dinner, Sep 24",
@@ -108,9 +115,10 @@ export const summitTiers: PassTier[] = [
     badge: "VIP · Exclusive",
     badgeVariant: "vip",
     price: 34999,
+    saleStarts: "25 May",
     description:
       "Full 3-day access with exclusive privileges. Includes CXO Dinner, Speakers Lounge, and front-row reserved seating.",
-    note: "*Very Limited — 20 seats",
+    note: LIMITED_SEATS_NOTE,
     inclusions: [
       "Day 1 (Sep 23) Workshop Day — all workshops",
       "Day 2 (Sep 24) Grand Ballroom",
@@ -134,10 +142,11 @@ export const summitAddOn = {
   id: "addon-workshop",
   badge: "Add On",
   price: 8999,
+  saleStarts: "25 May",
   title: "Workshops",
   description:
-    "Select any 2 workshops on Day 1 (Sep 23). Limited seats per workshop.",
-  note: "Can be added to any Summit pass.",
+    "Select any 2 workshops on Day 1 (Sep 23). Limited seats per workshop. Can be added to any Summit pass.",
+  note: LIMITED_SEATS_NOTE,
   ctaLabel: "Add to Your Pass →",
   ctaHref: waitlistUrl("addon-workshop"),
   variant: "summit" as const,

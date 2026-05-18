@@ -116,6 +116,9 @@ export function PricingTierRow({
         </div>
 
         <h3 className="font-reckless mt-4 text-[1.75rem] leading-tight">{tier.name}</h3>
+        <p className={`mt-2 font-sans text-sm font-medium ${textMuted}`}>
+          Starts {tier.saleStarts}
+        </p>
         <p className={`mt-2 font-sans text-[15px] leading-relaxed ${textMuted}`}>
           {tier.description}
         </p>
