@@ -45,7 +45,7 @@ export function SiteNav() {
           href={SITE_LINKS.waitlist}
           className="hidden items-center gap-2 rounded-full bg-brand px-5 py-2.5 font-sans text-sm font-semibold text-white transition hover:scale-105 hover:shadow-lg hover:shadow-brand/30 md:inline-flex"
         >
-          Join Waitlist
+          Buy Tickets
           <span aria-hidden>→</span>
         </Link>
 
@@ -82,7 +82,7 @@ export function SiteNav() {
                 className="inline-flex rounded-full bg-brand px-8 py-3 font-sans text-base font-semibold text-white"
                 onClick={() => setMenuOpen(false)}
               >
-                Join Waitlist
+                Buy Tickets
               </Link>
             </li>
           </ul>

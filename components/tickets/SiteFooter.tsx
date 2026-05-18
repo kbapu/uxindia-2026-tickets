@@ -30,7 +30,7 @@ export function FooterCTA() {
         href={SITE_LINKS.waitlist}
         className="mt-8 inline-flex items-center rounded-full bg-brand px-8 py-3.5 font-sans text-sm font-medium text-white transition hover:bg-brand/90"
       >
-        Join The Waitlist →
+        Buy Tickets →
       </Link>
     </section>
   );
