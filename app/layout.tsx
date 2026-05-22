@@ -9,9 +9,10 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Tickets — UXINDIA 2026",
-  description:
-    "Register for UXINDIA 2026 — Leadership Summit and Rising Leaders Forum passes.",
+  title: {
+    default: "UXINDIA 2026",
+    template: "%s — UXINDIA 2026",
+  },
 };
 
 export default function RootLayout({
