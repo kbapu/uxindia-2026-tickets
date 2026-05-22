@@ -1,39 +1,39 @@
 import { SiteNav } from "@/components/tickets/SiteNav";
-import { TicketsHero } from "@/components/tickets/TicketsHero";
-import { SummitTrackColumn, ForumTrackColumn } from "@/components/tickets/TrackColumn";
+import { TicketsArcHero } from "@/components/tickets/layout/TicketsArcHero";
+import { SummitTrackColumn } from "@/components/tickets/layout/SummitTrackColumn";
+import { ForumTrackColumn } from "@/components/tickets/layout/ForumTrackColumn";
 import { BundleBanner } from "@/components/tickets/BundleBanner";
 import { TicketsFAQ } from "@/components/tickets/TicketsFAQ";
 import { PoliciesSection } from "@/components/tickets/PoliciesSection";
-import { FooterCTA, SiteFooter } from "@/components/tickets/SiteFooter";
+import { SiteFooter } from "@/components/tickets/SiteFooter";
 import { summitTiers } from "@/data/summitTiers";
 import { forumProfessionalTiers } from "@/data/forumTiers";
 import { studentTiers } from "@/data/studentTiers";
 
 export default function TicketsPage() {
   return (
-    <div className="bg-cream">
+    <div className="bg-page">
       <SiteNav />
 
-      <main className="bg-page min-h-screen pt-32 pb-24">
-        <TicketsHero />
+      <main className="min-h-screen pb-24">
+        <TicketsArcHero />
 
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-start">
-            <SummitTrackColumn tiers={summitTiers} defaultOpenId="summit-seb" />
+        <section className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-8">
+            <SummitTrackColumn tiers={summitTiers} />
             <ForumTrackColumn
               professionalTiers={forumProfessionalTiers}
               studentTiers={studentTiers}
-              defaultOpenProId="forum-seb-pro"
-              defaultOpenStudentId="forum-seb-student"
             />
           </div>
 
-          <BundleBanner />
-        </div>
+          <div className="mt-14">
+            <BundleBanner />
+          </div>
+        </section>
 
         <PoliciesSection />
         <TicketsFAQ />
-        <FooterCTA />
       </main>
 
       <SiteFooter />

@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { PassTier, TrackVariant } from "@/types/pricing";
 import { getTierCtaLabel, isTierCtaDisabled } from "@/lib/format";
 import { PriceWithGst } from "./PriceWithGst";
+import { TierBadgeLabel } from "./TierBadgeLabel";
 import { TicketStackCard } from "./TicketStackCard";
 
 type PricingTierRowProps = {
@@ -78,7 +79,7 @@ export function PricingTierRow({
               <span
                 className={`rounded-full px-3 py-1 font-sans text-xs font-medium ${outlineBadge}`}
               >
-                {tier.badge}
+                <TierBadgeLabel label={tier.badge} />
               </span>
               {tier.highlight && (
                 <span className="rounded-full bg-brand px-3 py-1 font-sans text-xs font-medium text-white">
