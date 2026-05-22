@@ -16,25 +16,12 @@ const STUDENT_INCLUSIONS = [
 
 export const studentTiers: PassTier[] = [
   {
-    id: "forum-seb-student",
-    name: "Student Pass",
-    badge: "Super Early Bird — Students",
-    badgeVariant: "default",
-    price: 2599,
-    saleStarts: "25 May",
-    description: STUDENT_DESCRIPTION,
-    note: LIMITED_SEATS_NOTE,
-    inclusions: STUDENT_INCLUSIONS,
-    ctaLabel: "Register Now →",
-    ctaHref: waitlistUrl("forum-seb-student"),
-  },
-  {
     id: "forum-eb-student",
     name: "Student Pass",
     badge: "Early Bird — Students",
     badgeVariant: "default",
     price: 3299,
-    saleStarts: "26 May",
+    saleStarts: "25 May",
     description: STUDENT_DESCRIPTION,
     note: LIMITED_SEATS_NOTE,
     inclusions: STUDENT_INCLUSIONS,

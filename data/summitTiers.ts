@@ -15,26 +15,12 @@ const SUMMIT_INCLUSIONS = [
 
 export const summitTiers: PassTier[] = [
   {
-    id: "summit-seb",
-    name: "Leadership Summit Pass",
-    badge: "Super Early Bird",
-    badgeVariant: "default",
-    price: 14999,
-    saleStarts: "25 May",
-    description: SUMMIT_DESCRIPTION,
-    note: LIMITED_SEATS_NOTE,
-    inclusions: SUMMIT_INCLUSIONS,
-    savingsNote: "Save ₹13,000 vs. walk-in",
-    ctaLabel: "Register Now →",
-    ctaHref: waitlistUrl("summit-seb"),
-  },
-  {
     id: "summit-eb",
     name: "Leadership Summit Pass",
     badge: "Early Bird",
     badgeVariant: "default",
     price: 17999,
-    saleStarts: "26 May",
+    saleStarts: "25 May",
     description: SUMMIT_DESCRIPTION,
     note: LIMITED_SEATS_NOTE,
     inclusions: SUMMIT_INCLUSIONS,

@@ -16,25 +16,12 @@ const FORUM_INCLUSIONS = [
 
 export const forumProfessionalTiers: PassTier[] = [
   {
-    id: "forum-seb-pro",
-    name: "Rising Leaders Pass",
-    badge: "Super Early Bird — Professionals",
-    badgeVariant: "default",
-    price: 8999,
-    saleStarts: "25 May",
-    description: FORUM_DESCRIPTION,
-    note: LIMITED_SEATS_NOTE,
-    inclusions: FORUM_INCLUSIONS,
-    ctaLabel: "Register Now →",
-    ctaHref: waitlistUrl("forum-seb-pro"),
-  },
-  {
     id: "forum-eb-pro",
     name: "Rising Leaders Pass",
     badge: "Early Bird — Professionals",
     badgeVariant: "default",
     price: 10999,
-    saleStarts: "26 May",
+    saleStarts: "25 May",
     description: FORUM_DESCRIPTION,
     note: LIMITED_SEATS_NOTE,
     inclusions: FORUM_INCLUSIONS,

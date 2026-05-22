@@ -46,7 +46,7 @@ export const forumFaq: FAQItem[] = [
   {
     question: "Is there a student pass?",
     answer:
-      "Yes. Full-time students can register with a valid student ID. Student passes start from ₹2,599 + GST during Super Early Bird.",
+      "Yes. Full-time students can register with a valid student ID. Student passes start from ₹3,299 + GST during Early Bird.",
   },
   {
     question: "Can I attend both tracks?",
