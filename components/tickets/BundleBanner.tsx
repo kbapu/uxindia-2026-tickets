@@ -1,5 +1,21 @@
 import Link from "next/link";
+import { summitAddOn, summitTiers } from "@/data/summitTiers";
+import { forumProfessionalTiers } from "@/data/forumTiers";
+import { formatPrice } from "@/lib/format";
 import { PriceWithGst } from "./PriceWithGst";
+
+/** Full Week Pass at regular pricing (no Early Bird bundle tier). */
+const FULL_WEEK_PASS_PRICE = 35999;
+
+const summitRegularPrice =
+  summitTiers.find((t) => t.id === "summit-regular")?.price ?? 23999;
+const forumRegularPrice =
+  forumProfessionalTiers.find((t) => t.id === "forum-regular-pro")?.price ?? 12999;
+const workshopsPrice = summitAddOn.price;
+
+const buySeparatelyTotal =
+  summitRegularPrice + workshopsPrice + forumRegularPrice;
+const bundleSavings = buySeparatelyTotal - FULL_WEEK_PASS_PRICE;
 
 export function BundleBanner() {
   return (
@@ -29,23 +45,18 @@ export function BundleBanner() {
 
         <div className="flex flex-col gap-6 md:items-end">
           <div className="space-y-3 font-sans text-white">
-            <div>
-              <p className="text-sm text-white/70">Early Bird Bundle</p>
-              <PriceWithGst
-                price={28999}
-                gstClassName="text-white/60"
-                className="mt-1 text-left md:text-right"
-              />
-            </div>
-            <div>
-              <p className="text-sm text-white/70">Standard Bundle</p>
-              <PriceWithGst
-                price={35999}
-                gstClassName="text-white/60"
-                className="mt-1 text-left md:text-right"
-              />
-            </div>
-            <p className="text-sm text-white/60">Save ₹3,950 vs. buying separately</p>
+            <p className="text-sm font-medium text-white/70">Regular · Full Week Pass</p>
+            <PriceWithGst
+              price={FULL_WEEK_PASS_PRICE}
+              gstClassName="text-white/60"
+              className="text-left md:text-right"
+            />
+            <p className="max-w-sm text-sm leading-relaxed text-white/60 md:text-right">
+              Save {formatPrice(bundleSavings)} vs. buying at regular professional
+              rates: Summit {formatPrice(summitRegularPrice)} + Workshops{" "}
+              {formatPrice(workshopsPrice)} + Forum {formatPrice(forumRegularPrice)} (
+              {formatPrice(buySeparatelyTotal)} total)
+            </p>
           </div>
 
           <Link
